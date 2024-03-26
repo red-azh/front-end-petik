@@ -1,0 +1,47 @@
+/**
+ * Smoll Screen
+ *
+ * @format
+ */
+
+.navbar {
+	background-color: brown;
+	color: white;
+	padding: 10px;
+}
+
+.navbar ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+.navbar ul li {
+	margin-bottom: 10px;
+}
+
+.navbar ul li :last-child {
+	margin-bottom: 0;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+	color: yellow;
+}
+/* medium screen : 768px */
+@media screen and (min-width: 680px) {
+	.navbar ul {
+		display: flex;
+	}
+	.navbar ul li {
+		margin-bottom: 0;
+		margin-right: 20px;
+	}
+}
