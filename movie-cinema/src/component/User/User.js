@@ -9,6 +9,7 @@ const User = ({ nama, gambar, member, message }) => {
 	// 	width: "300px",
 	// 	margin: "20px auto",
 	// };
+	
 	return (
 		<>
 			<table className="card">
