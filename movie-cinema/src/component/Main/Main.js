@@ -5,7 +5,6 @@ import Car from "../Car/Car.js";
 import Movies from "../Movies/Movies.js";
 import "./Main.css";
 import Hero from "../Hero/Hero.js";
-
 const Main = () => {
 	const users = [
 		{
@@ -61,15 +60,15 @@ const Main = () => {
 	];
 	return (
 		<div className="content">
-		<Hero />
-		<Movies />
+			<Hero />
+			<Movies />
+
 			{users.map((user) => {
 				return (
 					<User
 						nama={user.nama}
 						member={user.member}
-						message={()=> alert(user.message)}
-						
+						message={() => alert(user.message)}
 					/>
 				);
 			})}

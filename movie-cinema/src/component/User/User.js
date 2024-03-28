@@ -33,6 +33,8 @@ const User = ({ nama, gambar, member, message }) => {
 					</tr>
 				</tbody>
 			</table>
+
+
 		</>
 	);
 };
