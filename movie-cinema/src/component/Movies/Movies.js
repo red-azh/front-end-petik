@@ -1,9 +1,10 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Movie from "../Movie/Movie.js";
 import "./Movies.css";
 import AddMovieForm from "../AddMovieForm/AddMovieForm.js";
+import { getMovieList } from "../../api.js";
 
 const Movies = () => {
 	// state biasanya paling atas
@@ -15,56 +16,7 @@ const Movies = () => {
 
 	// console.log(nama);
 
-	const [datas, setDatas] = useState([
-		{
-			title: "Judul Film 1",
-			year: 2021,
-			poster: "https://picsum.photos/200/300",
-			genre: "Horror",
-		},
-		{
-			title: "Judul Film 2",
-			year: 2020,
-			poster: "https://picsum.photos/200/300",
-			genre: "Action",
-		},
-		{
-			title: "Judul Film 3",
-			year: 2014,
-			poster: "https://picsum.photos/200/300",
-			genre: "Romance",
-		},
-		{
-			title: "Judul Film 4",
-			year: 2023,
-			poster: "https://picsum.photos/200/300",
-			genre: "Comedy",
-		},
-		{
-			title: "Judul Film 5",
-			year: 2022,
-			poster: "https://picsum.photos/200/300",
-			genre: "Thriller",
-		},
-		{
-			title: "Judul Film 6",
-			year: 2014,
-			poster: "https://picsum.photos/200/300",
-			genre: "Action",
-		},
-		{
-			title: "Judul Film 7",
-			year: 2017,
-			poster: "https://picsum.photos/200/300",
-			genre: "Horror",
-		},
-		{
-			title: "Judul Film 8",
-			year: 2018,
-			poster: "https://picsum.photos/200/300",
-			genre: "Romance",
-		},
-	]);
+	const [datas, setDatas] = useState([]);
 	// dia butuh handler sebagai trigger
 	const handleClick = () => {
 		const movie = {
@@ -81,6 +33,13 @@ const Movies = () => {
 	const addMovie = (movie) => {
 		setDatas([...datas, movie]);
 	};
+	useEffect(() => {
+		// panggl data api yang tadi kita buat
+		getMovieList().then((result) => {
+			setDatas(result);
+		});
+	}, []);
+
 	console.log(datas);
 	// mounting = kode semua yang di render pertama kali
 	// updating =
@@ -104,10 +63,10 @@ const Movies = () => {
 				{datas.map((data) => {
 					return (
 						<Movie
+							id={data.id}
 							title={data.title}
-							year={data.year}
-							poster={data.poster}
-							genre={data.genre}
+							year={data.release_date}
+							poster={data.poster_path}
 						/>
 					);
 				})}
