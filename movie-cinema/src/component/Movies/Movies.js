@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Movie from "../Movie/Movie.js";
 import "./Movies.css";
 import AddMovieForm from "../AddMovieForm/AddMovieForm.js";
-import { getMovieList } from "../../api.js";
+// loopping dari api
+import { getMovieList, getPopularMovie } from "../../api.js";
 
 const Movies = () => {
 	// state biasanya paling atas
@@ -29,7 +30,7 @@ const Movies = () => {
 		setDatas([...datas, movie]);
 		// setNama("Bumi");
 	};
-
+	// tambah
 	const addMovie = (movie) => {
 		setDatas([...datas, movie]);
 	};
@@ -39,6 +40,13 @@ const Movies = () => {
 			setDatas(result);
 		});
 	}, []);
+
+	// useEffect(() => {
+	// 	// panggl data api yang tadi kita buat
+	// 	getPopularMovie().then((result) => {
+	// 		setDatas(result);
+	// 	});
+	// }, []);
 
 	console.log(datas);
 	// mounting = kode semua yang di render pertama kali
@@ -55,6 +63,8 @@ const Movies = () => {
 	// const handleKurang = () => {
 	// 	setCount(count - 1);
 	// };
+
+	
 
 	return (
 		<div>

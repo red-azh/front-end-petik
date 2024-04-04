@@ -10,8 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.js";
 import Navbar from "./component/Navbar/Navbar.js";
 import Popular from "./pages/movie/Popular.js";
-import TopRated from "./pages/movie/TopRated.js";
 import Detail from "./pages/movie/Detail.js";
+import TopRated from "./pages/movie/TopRated.js";
 // proops itu atribut html tapi kalo di react jadi props namanya
 function App() {
 	// state = variable
@@ -23,6 +23,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/popular" element={<Popular />} />
+					<Route path="/top" element={<TopRated />} />
 					{/* show */}
 					<Route path="/detail/:id" element={<Detail />} />
 				</Routes>
