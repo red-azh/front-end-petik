@@ -27,9 +27,10 @@ const TopRated = () => {
 						<p className="genre">Tanggal Rilis : {data.release_date}</p>
 						<p className="genre">Popularity : {data.popularity}</p>
 						<p className="genre">Rating : {data.vote_average}</p>
+						<p className="genre">Vote Count : {data.vote_count}</p>
+
 						<p>Sinopsis : </p>
 						<p className="year">{data.overview}</p>
-						
 					</div>
 				);
 			})}
