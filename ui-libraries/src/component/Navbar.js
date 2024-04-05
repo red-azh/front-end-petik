@@ -54,8 +54,17 @@ function NavbarComponents(args) {
 								login
 							</NavLink>
 						</NavItem>
+						<NavItem>
+							<NavLink
+								className="text-light text-decoration-none "
+								to={"/detail"}>
+								Detail
+							</NavLink>
+						</NavItem>
 					</Nav>
-					<NavbarText>Azhari Julian</NavbarText>
+					<NavLink />
+					<button className="button is-warning">Login</button>
+					<NavLink />
 				</Collapse>
 			</Navbar>
 		</div>
