@@ -43,28 +43,21 @@ function NavbarComponents(args) {
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink className="text-light text-decoration-none " to={"/top"}>
-								Top Rated
+							<NavLink className="text-light text-decoration-none " to={"/course"}>
+								Courses
 							</NavLink>
 						</NavItem>
 						<NavItem>
 							<NavLink
 								className="text-light text-decoration-none mx-2"
-								to={"/login"}>
-								login
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink
-								className="text-light text-decoration-none "
 								to={"/detail"}>
 								Detail
 							</NavLink>
 						</NavItem>
 					</Nav>
-					<NavLink />
-					<button className="button is-warning">Login</button>
-					<NavLink />
+					<NavLink className="text-light text-decoration-none " to={"/login"}>
+						<button className="button is-warning">Login</button>
+					</NavLink>
 				</Collapse>
 			</Navbar>
 		</div>
