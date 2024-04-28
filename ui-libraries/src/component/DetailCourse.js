@@ -1,58 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+/** @format */
+
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const DetailCourse = () => {
-  const { id } = useParams();
+	const [name, setName] = useState("");
+	const [desc, setDesc] = useState("");
+	const [image, setImage] = useState("");
+	const { id } = useParams();
 
-  const [course, setCourse] = useState({
-    name: '',
-    desc: '',
-    url: '',
-  });
+	useEffect(() => {
+		getCourseById();
+	}, [id]);
 
-  useEffect(() => {
-    const fetchCourse = async () => {
-      try {
-        const response = await axios.get(`https://api.sukmax.my.id/course/${id}`);
-        setCourse(response.data);
-      } catch (error) {
-        console.error('Error fetching course:', error);
-      }
-    };
-
-    fetchCourse();
-  }, [id]);
-
-  return (
-    <div>
-      <section className="section mt-5">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-half">
-              <figure className="image is-4by3">
-                <img src={course.url} alt="product" />
-              </figure>
-            </div>
-            <div className="column">
-              <div className="content">
-                <div className="title">{course.name}</div>
-                <p>{course.desc}</p>
-                <div className="field p-5">
-                  <button className="button is-primary is-fullwidth has-text-white mb-3">
-                    Add to cart
-                  </button>
-                  <button className="button is-primary is-outlined is-fullwidth">
-                    Add to cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+	const getCourseById = async () => {
+		try {
+			const response = await axios.get(`http://api.sukmax.my.id/course/${id}`);
+			setName(response.data.name);
+			setDesc(response.data.desc);
+			setImage(response.data.url);
+		} catch (error) {
+			console.log(error.response.data.msg);
+		}
+	};
+	return (
+		<section className="section mt-5">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-half">
+						<figure class="image is4by3">
+							<img src={image} alt="product" />
+						</figure>
+					</div>
+					<div class="column">
+						<div class="content">
+							<div class="title is-4">{name}</div>
+							<p>{desc}</p>
+							<div class="field p-5">
+								<button className="button is-primary is-fullwidth has-text-white mb-3">
+									Add to cart
+								</button>
+								<button className="button is-primary is-outlined is-fullwidth">
+									Buy
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default DetailCourse;

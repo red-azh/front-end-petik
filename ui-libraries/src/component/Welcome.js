@@ -6,8 +6,8 @@ const Welcome = () => {
 	return (
 		<div>
 			<h1 className="title">Dashboard</h1>
-			<h2 className="subtitle">
-				Welcome back <strong>Azhari</strong>
+			<h2 class="subtitle">
+				Welcome back <strong>Ucup</strong>
 			</h2>
 		</div>
 	);
